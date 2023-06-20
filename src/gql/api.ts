@@ -1,20 +1,16 @@
 import { ApolloClient, HttpLink, InMemoryCache, Operation, split } from '@apollo/client';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { getEnvString } from 'app/utils/env';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createClient } from 'graphql-ws';
 
-const BASE_QUERY_URL = getEnvString({ name: 'baseQueryUrl' });
-const BASE_WS_URL = getEnvString({ name: 'baseWsUrl' });
-
 const httpLink = new HttpLink({
-  uri: BASE_QUERY_URL,
+  uri: process.env.BASE_QUERY_URL,
 });
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: BASE_WS_URL,
+    url: process.env.BASE_WS_URL as string,
   }),
 );
 
