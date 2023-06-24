@@ -44,7 +44,7 @@ jobs:
       - name: Tests
         run: pnpm test
       - name: Build production bundle
-        run: pnpm buld
+        run: pnpm build
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy to Vercel Action
-        uses: Netahuhn/deploy-to-vercel-action@v1
+        uses: Betahuhn/deploy-to-vercel-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
