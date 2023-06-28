@@ -36,10 +36,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install package dependencies
         run: pnpm install
-      - name: Check linting and formatting
-        run: |
-          pnpm lint
-          pnpm format
+      - name: Check linting
+        run: pnpm lint
+      - name: Check Formatting
+        run: pnpm format
       - name: Run Tests
         run: pnpm test
       - name: Build Applications
