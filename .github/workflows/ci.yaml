@@ -1,8 +1,8 @@
-name: CI
+name: Development
 
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
   pull_request:
     types: [ opened, synchronize, reopened ]
 
